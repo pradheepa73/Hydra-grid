@@ -15,9 +15,9 @@ def run():
     scenarios = [
         ("SCADA_MASTER", "B1", "OPEN", "Legitimate operator"),
         ("IT_NET",       "B3", "OPEN", "IT network breach (Colonial 2021)"),
-        ("ATTACKER",     "B1", "OPEN", "First cascade step"),
-        ("ATTACKER",     "B2", "OPEN", "Cascade blocked by TWIN"),
-        ("ATTACKER",     "B2", "OPEN", "Repeat attack — IMMUNE blocks instantly"),
+        ("SCADA_MASTER", "B1", "OPEN", "Compromised operator - first step"),
+        ("SCADA_MASTER", "B2", "OPEN", "Cascade blocked by TWIN"),
+        ("SCADA_MASTER", "B2", "OPEN", "Repeat attack - IMMUNE blocks instantly"),
     ]
 
     for source, breaker, action, label in scenarios:
