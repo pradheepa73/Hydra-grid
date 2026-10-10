@@ -1,4 +1,5 @@
 ﻿"""HYDRA-GRID Layer 1 - SENTRY orchestrator."""
+import hmac
 from datetime import datetime, time as dtime
 
 from src.core.constants import ALLOWED_COMMAND_SOURCES, MAINTENANCE_WINDOW
@@ -46,9 +47,14 @@ class SentryLayer:
         if not ok:
             return self._reject(source, command, reason)
 
-        if (username.lower(), password.lower()) in BANNED_CREDENTIALS:
-            return self._reject(source, command,
-                f"Default credential blocked: {username}/*")
+        u_lower = username.lower()
+        p_lower = password.lower()
+        for banned_u, banned_p in BANNED_CREDENTIALS:
+            u_match = hmac.compare_digest(u_lower, banned_u)
+            p_match = hmac.compare_digest(p_lower, banned_p)
+            if u_match and p_match:
+                return self._reject(source, command,
+                    f"Default credential blocked: {username}/*")
 
         now = datetime.now().time()
         start = dtime(MAINTENANCE_WINDOW[0], 0)

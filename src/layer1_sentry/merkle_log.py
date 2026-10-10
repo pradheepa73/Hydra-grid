@@ -7,6 +7,7 @@ Two independent security guarantees:
     both the GCM auth tag and the Merkle root.
 """
 import hashlib
+import hmac
 import json
 import os
 import time
@@ -16,6 +17,7 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 
 class MerkleAuditLog:
+    _HMAC_KEY = os.urandom(32)
     _KEY = os.urandom(32)
     _NONCE_LEN = 12
 
@@ -43,10 +45,14 @@ class MerkleAuditLog:
         plaintext = json.dumps(record, separators=(",", ":")).encode()
         ciphertext, nonce = self._encrypt(plaintext)
         entry_hash = hashlib.sha256(ciphertext).hexdigest()
+        entry_mac = hmac.new(
+            self._HMAC_KEY, ciphertext, hashlib.sha256
+        ).hexdigest()
         self.entries.append({
             "nonce": nonce.hex(),
             "ciphertext": ciphertext.hex(),
             "hash": entry_hash,
+            "mac": entry_mac,
             "ts": record["ts"],
         })
 
@@ -73,7 +79,14 @@ class MerkleAuditLog:
 
     def verify_integrity(self):
         for e in self.entries:
-            expected = hashlib.sha256(bytes.fromhex(e["ciphertext"])).hexdigest()
-            if expected != e["hash"]:
+            ciphertext = bytes.fromhex(e["ciphertext"])
+            expected_hash = hashlib.sha256(ciphertext).hexdigest()
+            if expected_hash != e["hash"]:
                 return False
+            if "mac" in e:
+                expected_mac = hmac.new(
+                    self._HMAC_KEY, ciphertext, hashlib.sha256
+                ).hexdigest()
+                if not hmac.compare_digest(expected_mac, e["mac"]):
+                    return False
         return True
