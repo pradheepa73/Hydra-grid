@@ -17,7 +17,7 @@ BANNED_CREDENTIALS = {
 
 
 class SentryLayer:
-    def __init__(self):
+    def __init__(self, demo_mode=False):
         self.keystore = KeyStore()
         self.signer = CommandSigner(self.keystore)
         self.rate_limiter = RateLimiter()
