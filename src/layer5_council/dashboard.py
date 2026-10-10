@@ -214,6 +214,57 @@ st.markdown("""
     #MainMenu, footer, header { visibility: hidden; }
     hr { border: none; border-top: 1px solid #1f2d4a; margin: 16px 0; }
     .stCaption, small { color: #94a3b8 !important; font-size: 11px; }
+
+    /* Fix metric label readability */
+    div[data-testid="stMetricLabel"],
+    div[data-testid="stMetricLabel"] * {
+        color: #7dd3fc !important;
+    }
+    div[data-testid="stMetricValue"],
+    div[data-testid="stMetricValue"] * {
+        color: #ffffff !important;
+    }
+
+    /* ========== FORCE METRIC STYLING (override Streamlit defaults) ========== */
+    div[data-testid="stMetric"] {
+        background: #10182b !important;
+        border: 1px solid #1f2d4a !important;
+        border-top: 2px solid #2dd4bf !important;
+        border-radius: 4px !important;
+        padding: 14px 16px !important;
+    }
+    div[data-testid="stMetric"] label,
+    div[data-testid="stMetric"] label p,
+    div[data-testid="stMetric"] label div,
+    div[data-testid="stMetric"] > label,
+    div[data-testid="stMetric"] > label > div,
+    div[data-testid="stMetric"] > label > div > p {
+        color: #7dd3fc !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+    }
+    div[data-testid="stMetric"] div[data-testid="stMetricValue"],
+    div[data-testid="stMetric"] div[data-testid="stMetricValue"] > div,
+    div[data-testid="stMetric"] div[data-testid="stMetricValue"] > div > div {
+        color: #ffffff !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        font-family: Consolas, monospace !important;
+        font-weight: 700 !important;
+        font-size: 26px !important;
+        text-shadow: 0 0 12px rgba(45, 212, 191, 0.5) !important;
+    }
+    /* Remove any leftover highlight from mark elements */
+    div[data-testid="stMetric"] mark,
+    div[data-testid="stMetricLabel"] mark,
+    div[data-testid="stMetricValue"] mark {
+        background: transparent !important;
+        color: inherit !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
