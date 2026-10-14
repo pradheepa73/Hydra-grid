@@ -27,3 +27,6 @@ Thumbs.db
 # Demo output
 demo/video/*.mp4
 demo/slides/*.pptx
+
+.hydra_snapshots/
+.hydra_test_snapshots/
