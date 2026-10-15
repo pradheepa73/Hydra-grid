@@ -116,6 +116,20 @@ Command - SENTRY - TWIN - PATTERN - IMMUNE - COUNCIL - ALLOW / BLOCK
 
 ---
 
+## Algorithms Used
+
+| Layer | Main Algorithms / Techniques |
+|:---|:---|
+| **SENTRY** | HMAC-SHA256, SHA-256, Nonce, Merkle Tree |
+| **TWIN** | Digital Twin Simulation (no crypto) |
+| **PATTERN** | Physics Rules + Markov Chain |
+| **IMMUNE** | SHA-256 + Human-in-the-Loop |
+| **Cross-Layer** | AES-256-GCM + HMAC + Fail-Closed Self-Test |
+
+**One-liner:** HMAC-SHA256 and SHA-256 for authenticity/integrity, Markov Chain for anomaly detection, Digital Twin for pre-execution simulation, AES-256-GCM for log encryption.
+
+---
+
 ## Real Incidents Countered
 
 - **Ukraine 2015 (BlackEnergy)** -> SENTRY + TWIN
