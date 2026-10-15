@@ -6,15 +6,15 @@
 
 [![Tests](https://img.shields.io/badge/tests-26%20passing-brightgreen)]()
 [![Python](https://img.shields.io/badge/python-3.11+-blue)]()
-[![License](https://img.shields.io/badge/license-MIT-green)]()
+[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)]()
 
 ---
 
 ## Overview
 
-HYDRA-GRID is a software-only, 5-layer defense framework that protects smart grid substations from nation-state cyber-physical attacks. It implements the full **Prevent → Simulate → Detect → Learn → Explain** loop on commodity hardware.
+HYDRA-GRID is a software-only, 5-layer defense framework that protects smart grid substations from nation-state cyber-physical attacks. It implements the full **Prevent - Simulate - Detect - Learn - Explain** loop on commodity hardware.
 
-Every layer maps to a documented real-world incident from 2015 to 2025. The project is complemented by **Shadow Sentinel** — a completely independent watchdog application that monitors the 5 layers from the outside. Shadow Sentinel is described at the end of this document.
+Every layer maps to a documented real-world incident from 2015 to 2025. The project is complemented by **Shadow Sentinel** -- a completely independent watchdog application that monitors the 5 layers from the outside. Shadow Sentinel is described at the end of this document.
 
 ---
 
@@ -22,14 +22,14 @@ Every layer maps to a documented real-world incident from 2015 to 2025. The proj
 
 Every major power grid attack in the last decade succeeded for the same reason: **the commands the attackers sent were valid.**
 
-Traditional defenses — firewalls, antivirus, signature-based IDS — fail because no single packet looks malicious. Only the **sequence, physical consequence, and intent** reveal the danger.
+Traditional defenses -- firewalls, antivirus, signature-based IDS -- fail because no single packet looks malicious. Only the **sequence, physical consequence, and intent** reveal the danger.
 
 | Incident | Year | Why Defenses Failed |
 |:---|:---|:---|
-| Ukraine (BlackEnergy) | 2015 | Stolen VPN credentials — traffic looked legitimate |
-| Ukraine (Industroyer) | 2016 | Native ICS protocols — commands were valid |
+| Ukraine (BlackEnergy) | 2015 | Stolen VPN credentials -- traffic looked legitimate |
+| Ukraine (Industroyer) | 2016 | Native ICS protocols -- commands were valid |
 | Triton | 2017 | Safety controller manipulation looked normal |
-| Colonial Pipeline | 2021 | IT breach forced OT shutdown — no visibility |
+| Colonial Pipeline | 2021 | IT breach forced OT shutdown -- no visibility |
 | Poland | 2025 | Default credentials + firmware corruption |
 
 **The gap:** Existing tools check syntax or signatures. None checks **intent + sequence + physics together** in a closed, adaptive loop.
@@ -58,10 +58,10 @@ HYDRA-GRID treats every control command as a **claim about the grid's future sta
 | 4 | **IMMUNE** | Adaptive attack signature learner |
 | 5 | **COUNCIL** | Explainable AI dashboard |
 
-**Loop:** Prevent → Simulate → Detect → Learn → Explain
+**Loop:** Prevent - Simulate - Detect - Learn - Explain
 
 ```
-Command → SENTRY → TWIN → PATTERN → IMMUNE → COUNCIL → ALLOW / BLOCK
+Command - SENTRY - TWIN - PATTERN - IMMUNE - COUNCIL - ALLOW / BLOCK
 ```
 
 ---
@@ -85,7 +85,7 @@ Command → SENTRY → TWIN → PATTERN → IMMUNE → COUNCIL → ALLOW / BLOCK
 
 ## Security Mechanisms (18 Total)
 
-### Layer 1 — SENTRY (9)
+### Layer 1 - SENTRY (9)
 1. HMAC-SHA256 command signing
 2. Nonce-based replay prevention
 3. Time-window access control
@@ -96,14 +96,14 @@ Command → SENTRY → TWIN → PATTERN → IMMUNE → COUNCIL → ALLOW / BLOCK
 8. Self-integrity monitoring
 9. Constant-time credential comparison
 
-### Layer 2 — TWIN (1)
+### Layer 2 - TWIN (1)
 10. Pre-execution digital twin simulation (deep copy)
 
-### Layer 3 — PATTERN (2)
+### Layer 3 - PATTERN (2)
 11. Physics rule engine
 12. Markov chain sequence anomaly detector
 
-### Layer 4 — IMMUNE (3)
+### Layer 4 - IMMUNE (3)
 13. SHA-256 attack signature hashing
 14. Human-in-the-loop signature approval gate
 15. Adaptive learning (sub-millisecond repeat detection)
@@ -117,11 +117,11 @@ Command → SENTRY → TWIN → PATTERN → IMMUNE → COUNCIL → ALLOW / BLOCK
 
 ## Real Incidents Countered
 
-- **Ukraine 2015 (BlackEnergy)** → SENTRY + TWIN
-- **Ukraine 2016 (Industroyer)** → PATTERN + TWIN
-- **Triton 2017** → PATTERN + SENTRY
-- **Colonial Pipeline 2021** → SENTRY
-- **Poland 2025** → SENTRY (credentials + firmware)
+- **Ukraine 2015 (BlackEnergy)** -> SENTRY + TWIN
+- **Ukraine 2016 (Industroyer)** -> PATTERN + TWIN
+- **Triton 2017** -> PATTERN + SENTRY
+- **Colonial Pipeline 2021** -> SENTRY
+- **Poland 2025** -> SENTRY (credentials + firmware)
 
 ---
 
@@ -129,27 +129,27 @@ Command → SENTRY → TWIN → PATTERN → IMMUNE → COUNCIL → ALLOW / BLOCK
 
 ```
 Hydra-grid/
-├── src/                        # HYDRA-GRID (5 layers)
-│   ├── core/
-│   ├── layer1_sentry/
-│   ├── layer2_twin/
-│   ├── layer3_pattern/
-│   ├── layer4_immune/
-│   └── layer5_council/
-│
-├── shadow_sentinel/            # Independent watchdog (separate application)
-│   ├── sentinel.py
-│   ├── backend.py
-│   └── frontend.py
-│
-├── tests/                      # 26 automated tests
-├── scripts/
-├── docs/
-├── demo/
-├── infra/
-├── README.md
-├── LICENSE
-└── requirements.txt
+|-- src/                        # HYDRA-GRID (5 layers)
+|   |-- core/
+|   |-- layer1_sentry/
+|   |-- layer2_twin/
+|   |-- layer3_pattern/
+|   |-- layer4_immune/
+|   \-- layer5_council/
+|
+|-- shadow_sentinel/            # Independent watchdog (separate application)
+|   |-- sentinel.py
+|   |-- backend.py
+|   \-- frontend.py
+|
+|-- tests/                      # 26 automated tests
+|-- scripts/
+|-- docs/
+|-- demo/
+|-- infra/
+|-- README.md
+|-- LICENSE
+\-- requirements.txt
 ```
 
 ---
@@ -213,13 +213,13 @@ streamlit run src/layer5_council/dashboard.py
 
 ---
 
-## Roadmap — Lab to National Deployment
+## Roadmap - Lab to National Deployment
 
 | Phase | Timeline | Deliverable |
 |:-:|:---|:---|
 | 1 | Current | Lab prototype (5 layers + Shadow Sentinel) |
-| 2 | 6–12 months | Hardware-in-the-loop (real PLC) |
-| 3 | 12–24 months | Isolated utility pilot |
+| 2 | 6-12 months | Hardware-in-the-loop (real PLC) |
+| 3 | 12-24 months | Isolated utility pilot |
 | 4 | 24+ months | National deployment (PQC + Federated Learning) |
 
 ---
@@ -231,7 +231,7 @@ streamlit run src/layer5_council/dashboard.py
 | No wire encryption (Modbus/DNP3) | Post-Quantum Cryptography (Phase 4) |
 | Markov chain can be evaded | Adversarial training (Phase 2) |
 | Simplified twin physics | Full AC-OPF integration (Phase 2) |
-| IMMUNE requires human approval | By design — intentional safety feature |
+| IMMUNE requires human approval | By design -- intentional safety feature |
 | No hardware validation | Phase 2 of roadmap |
 | No formal verification | Phase 4 of roadmap |
 
@@ -243,7 +243,7 @@ streamlit run src/layer5_council/dashboard.py
 
 > *"The 5 layers protect the grid. Shadow Sentinel protects the 5 layers."*
 
-Shadow Sentinel is a **completely independent application** — not a layer inside HYDRA-GRID. It runs as a separate process and monitors the 5 defense layers from the outside.
+Shadow Sentinel is a **completely independent application** -- not a layer inside HYDRA-GRID. It runs as a separate process and monitors the 5 defense layers from the outside.
 
 It does **not** block commands. It does **not** act autonomously. It **only** observes, evaluates, and raises alerts for human review.
 
@@ -253,7 +253,7 @@ It does **not** block commands. It does **not** act autonomously. It **only** ob
 
 Every defense system has a fundamental question: **What if the defense itself is compromised?**
 
-If an attacker disables SENTRY, corrupts TWIN, tampers with logs, or bypasses PATTERN — the 5-layer defense fails silently. Shadow Sentinel is the answer.
+If an attacker disables SENTRY, corrupts TWIN, tampers with logs, or bypasses PATTERN -- the 5-layer defense fails silently. Shadow Sentinel is the answer.
 
 **Analogy:** Imagine a military base with 5 security guards. What if a trained team silently takes out all 5? That is why bases also have cameras on a separate circuit. Even if all guards are down, the cameras still see everything. **Shadow Sentinel is that camera.**
 
@@ -263,9 +263,9 @@ If an attacker disables SENTRY, corrupts TWIN, tampers with logs, or bypasses PA
 
 Shadow Sentinel sits outside the pipeline. It does not trust the layers. It watches them.
 
-- **HYDRA-GRID (5 layers)** — port 8501
-- **Shadow Sentinel Backend** — port 8000
-- **Shadow Sentinel Frontend** — port 8502
+- **HYDRA-GRID (5 layers)** -- port 8501
+- **Shadow Sentinel Backend** -- port 8000
+- **Shadow Sentinel Frontend** -- port 8502
 
 Three separate processes. Two ports. Zero shared state.
 
@@ -277,11 +277,11 @@ Shadow Sentinel stays **silent** during normal operation. It activates only when
 
 | Signal | Meaning | Why It's Dangerous |
 |:---|:---|:---|
-| **H** — Heartbeat Loss | A layer stopped sending health signals | Layer may be dead or disabled |
-| **D** — Decision Contradiction | A command that should be blocked was allowed | Layer may be bypassed |
-| **I** — Integrity Failure | Logs or hashes changed | Possible tampering |
-| **V** — View Mismatch | Sentinel sees X, system reports Y | System may be lying |
-| **S** — Sustained Pattern | Unusual activity continues | Increases confidence |
+| **H** -- Heartbeat Loss | A layer stopped sending health signals | Layer may be dead or disabled |
+| **D** -- Decision Contradiction | A command that should be blocked was allowed | Layer may be bypassed |
+| **I** -- Integrity Failure | Logs or hashes changed | Possible tampering |
+| **V** -- View Mismatch | Sentinel sees X, system reports Y | System may be lying |
+| **S** -- Sustained Pattern | Unusual activity continues | Increases confidence |
 
 **Rule:** 2 out of 5 triggers it. **One signal is coincidence. Two is compromise.**
 
@@ -309,17 +309,17 @@ Shadow Sentinel stays **silent** during normal operation. It activates only when
 
 ## Shadow Sentinel Quick Start
 
-**Terminal 1 — Backend:**
+**Terminal 1 - Backend:**
 ```bash
 uvicorn shadow_sentinel.backend:app --host 127.0.0.1 --port 8000
 ```
 
-**Terminal 2 — Frontend:**
+**Terminal 2 - Frontend:**
 ```bash
 streamlit run shadow_sentinel/frontend.py --server.port 8502
 ```
 
-**Terminal 3 — Tests:**
+**Terminal 3 - Tests:**
 ```bash
 python -m pytest tests/test_sentinel.py -v
 ```
@@ -328,11 +328,11 @@ python -m pytest tests/test_sentinel.py -v
 
 ## Shadow Sentinel Trigger Scenarios
 
-**Normal Operation:** All 5 layers heartbeat healthy → Sentinel silent.
+**Normal Operation:** All 5 layers heartbeat healthy -> Sentinel silent.
 
-**Compromised Layers:** H + D + I + V + S fire → Sentinel activates → Alert queued → Human review required.
+**Compromised Layers:** H + D + I + V + S fire -> Sentinel activates -> Alert queued -> Human review required.
 
-**Single Signal (False Positive):** Only H fires → Sentinel stays silent → No false positive.
+**Single Signal (False Positive):** Only H fires -> Sentinel stays silent -> No false positive.
 
 ---
 
@@ -340,48 +340,52 @@ python -m pytest tests/test_sentinel.py -v
 
 ```
 shadow_sentinel/
-├── __init__.py       # Package init
-├── sentinel.py       # Core watchdog class (H-D-I-V-S logic)
-├── backend.py        # FastAPI backend (HMAC auth)
-└── frontend.py       # Streamlit operator console
+|-- __init__.py       # Package init
+|-- sentinel.py       # Core watchdog class (H-D-I-V-S logic)
+|-- backend.py        # FastAPI backend (HMAC auth)
+\-- frontend.py       # Streamlit operator console
 ```
 
 ---
 
 ## About the Team
 
-**Team:** PRADHEEPA M  
+**Team Name:** PRADHEEPA M  
 **Project:** HYDRA-GRID 2026 + Shadow Sentinel  
 **Event:** OWASP SREC Cyber Week Hackathon 2026  
 **Track:** Defense Tech, Communications & National Security
 
-| Role | Responsibility |
+| Member | Role |
 |:---|:---|
-| M1 — AI & Simulation | Simulator, rule engine, Markov chain, Digital Twin, IMMUNE layer |
-| M2 — Network & Recovery | Mininet, OVS rules, Docker, Golden Image, honeypot, Sentinel backend |
-| M3 — UI & Documentation | Streamlit dashboard, thesis, slides, demo video |
+| **Pradheepa M** (Team Leader) | Backend & Frontend Developer, Solution Finder, Event Coordinator -- all technical and organizational work |
+| **Sangeetha Kumari** | Speaker, PPT Creator, Solution Finder |
+| **Ayushi Pandey** | Speaker |
+| **Pooja T. T** | Team Member |
 
 ---
 
 ## Acknowledgments
 
-- OWASP SREC Chapter — for hosting the hackathon
-- iTrust Singapore — SWaT and WADI datasets (research reference)
-- MITRE ATT&CK — ICS attack pattern taxonomy
+- OWASP SREC Chapter -- for hosting the hackathon
+- iTrust Singapore -- SWaT and WADI datasets (research reference)
+- MITRE ATT&CK -- ICS attack pattern taxonomy
 
 ---
 
 ## License
 
-MIT
+**All Rights Reserved.** Copyright (c) 2026 PRADHEEPA M.
+
+Public visibility does not grant permission to copy, modify, or distribute.
 
 ---
 
-## 👤 Author
+## Author
 
 **Pradheepa M**  
 B.Sc. Computer Science with Cybersecurity  
-📧 pradheepa378@gmail.com  
+**Team Leader -- HYDRA-GRID 2026**  
+pradheepa378@gmail.com  
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pradheepa-m-051728372)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/pradheepa73/Hydra-grid)
@@ -397,3 +401,5 @@ B.Sc. Computer Science with Cybersecurity
 
 </div>
 ```
+
+---
