@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  hydra-grid:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile.substation
+    container_name: hydra_grid
+    ports:
+      - "8501:8501"
+    command: streamlit run src/layer5_council/dashboard.py --server.port 8501 --server.address 0.0.0.0
+
+  shadow-sentinel-backend:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile.substation
+    container_name: shadow_sentinel_backend
+    ports:
+      - "8000:8000"
+    command: uvicorn shadow_sentinel.backend:app --host 0.0.0.0 --port 8000
+
+  shadow-sentinel-frontend:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile.substation
+    container_name: shadow_sentinel_frontend
+    ports:
+      - "8502:8502"
+    command: streamlit run shadow_sentinel/frontend.py --server.port 8502 --server.address 0.0.0.0

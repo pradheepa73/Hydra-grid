@@ -1,0 +1,7 @@
+{
+  "name": "IT Network Breach",
+  "source": "IT_NET",
+  "command": "OPEN_B3",
+  "expected": "BLOCK",
+  "counters": "Colonial Pipeline 2021"
+}

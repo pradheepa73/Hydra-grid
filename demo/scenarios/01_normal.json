@@ -1,0 +1,6 @@
+{
+  "name": "Normal Operation",
+  "source": "SCADA_MASTER",
+  "command": "OPEN_B1",
+  "expected": "ALLOW"
+}

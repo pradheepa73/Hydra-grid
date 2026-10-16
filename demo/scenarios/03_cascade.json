@@ -1,0 +1,10 @@
+{
+  "name": "Cascade Attack",
+  "source": "SCADA_MASTER",
+  "commands": [
+    "OPEN_B1",
+    "OPEN_B2"
+  ],
+  "expected": "BLOCK_TWIN",
+  "counters": "Ukraine 2016"
+}

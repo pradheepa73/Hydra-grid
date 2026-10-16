@@ -1,0 +1,7 @@
+{
+  "name": "Replay Attack",
+  "source": "SCADA_MASTER",
+  "command": "OPEN_B1",
+  "repeat": true,
+  "expected": "BLOCK_TWIN_REDUNDANT"
+}
