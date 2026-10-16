@@ -30,3 +30,8 @@ demo/slides/*.pptx
 
 .hydra_snapshots/
 .hydra_test_snapshots/
+
+# Secret keys — never commit these
+.sentinel_keys.json
+*.sentinel_keys.json
+.streamlit/secrets.toml
