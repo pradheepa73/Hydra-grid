@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 3 - Markov chain sequence anomaly detector."""
+"""HYDRA-GRID Layer 3 - Markov chain sequence anomaly detector."""
 import math
 from collections import defaultdict
 

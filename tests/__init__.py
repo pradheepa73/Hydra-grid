@@ -1,1 +1,1 @@
-﻿"""HYDRA-GRID tests."""
+"""HYDRA-GRID tests."""

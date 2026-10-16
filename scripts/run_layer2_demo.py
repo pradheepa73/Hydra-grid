@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 2 - TWIN demo."""
+"""HYDRA-GRID Layer 2 - TWIN demo."""
 import sys, os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 

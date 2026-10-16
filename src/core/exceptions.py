@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID - Custom exceptions."""
+"""HYDRA-GRID - Custom exceptions."""
 
 
 class HydraError(Exception):

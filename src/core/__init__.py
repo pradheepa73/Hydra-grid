@@ -1,1 +1,1 @@
-﻿"""HYDRA-GRID core utilities."""
+"""HYDRA-GRID core utilities."""

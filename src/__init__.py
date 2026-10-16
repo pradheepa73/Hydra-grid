@@ -1,1 +1,1 @@
-﻿"""HYDRA-GRID source package."""
+"""HYDRA-GRID source package."""

@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 1 - SENTRY orchestrator."""
+"""HYDRA-GRID Layer 1 - SENTRY orchestrator."""
 import hmac
 from datetime import datetime, time as dtime
 

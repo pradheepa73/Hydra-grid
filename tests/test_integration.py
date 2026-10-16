@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID - Cross-layer integration tests.
+"""HYDRA-GRID - Cross-layer integration tests.
 
 Verifies all 5 layers work together as a system.
 """

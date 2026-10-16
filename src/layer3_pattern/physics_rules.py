@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 3 - Physics rules detector."""
+"""HYDRA-GRID Layer 3 - Physics rules detector."""
 from src.layer2_twin.grid_state import GridState
 
 

@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 2 - Grid state model."""
+"""HYDRA-GRID Layer 2 - Grid state model."""
 import hashlib
 import time
 from datetime import datetime

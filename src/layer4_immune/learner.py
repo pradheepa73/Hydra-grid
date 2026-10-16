@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 4 - Adaptive Immune Learner."""
+"""HYDRA-GRID Layer 4 - Adaptive Immune Learner."""
 import time
 
 from src.layer4_immune.signature import SignatureStore

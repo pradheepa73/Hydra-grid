@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 2 - Digital Twin pre-execution simulator."""
+"""HYDRA-GRID Layer 2 - Digital Twin pre-execution simulator."""
 import copy
 
 from src.layer2_twin.grid_state import GridState

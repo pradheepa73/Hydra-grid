@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID - Unified logging helper."""
+"""HYDRA-GRID - Unified logging helper."""
 import hashlib
 import time
 from datetime import datetime

@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 1 - Self-integrity monitor."""
+"""HYDRA-GRID Layer 1 - Self-integrity monitor."""
 import hashlib
 
 from src.core.constants import (

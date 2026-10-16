@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 1 - Firmware integrity."""
+"""HYDRA-GRID Layer 1 - Firmware integrity."""
 import hashlib
 
 

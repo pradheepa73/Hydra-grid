@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 1 - Signing + Nonce."""
+"""HYDRA-GRID Layer 1 - Signing + Nonce."""
 import hashlib
 import hmac
 

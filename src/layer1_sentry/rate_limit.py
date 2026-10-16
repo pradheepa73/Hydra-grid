@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 1 - Per-source rate limiter."""
+"""HYDRA-GRID Layer 1 - Per-source rate limiter."""
 import time
 from collections import defaultdict
 

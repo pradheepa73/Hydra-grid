@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 5 - Unified pipeline combining all layers."""
+"""HYDRA-GRID Layer 5 - Unified pipeline combining all layers."""
 from src.layer1_sentry import SentryLayer
 from src.layer2_twin import GridState, DigitalTwin
 from src.layer3_pattern import PhysicsRules, MarkovDetector

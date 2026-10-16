@@ -1,4 +1,4 @@
-﻿"""HYDRA-GRID Layer 4 - Attack signature engine."""
+"""HYDRA-GRID Layer 4 - Attack signature engine."""
 import hashlib
 import time
 from datetime import datetime
