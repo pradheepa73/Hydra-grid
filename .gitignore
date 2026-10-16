@@ -35,3 +35,6 @@ demo/slides/*.pptx
 .sentinel_keys.json
 *.sentinel_keys.json
 .streamlit/secrets.toml
+
+desktop.ini
+Thumbs.db
