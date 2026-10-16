@@ -1,4 +1,4 @@
-# HYDRA-GRID 2026
+﻿# HYDRA-GRID 2026
 
 **A Self-Learning Cyber-Physical Defense Grid for National Smart Substations**
 
@@ -403,3 +403,4 @@ pradheepa378@gmail.com
 ```
 
 ---
+

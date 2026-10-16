@@ -1,7 +1,32 @@
+import streamlit as st
+
+st.markdown("""
+<style>
+    /* Dark background */
+    .stApp { background-color: #0E1117 !important; }
+    /* White text for everything else */
+    .stApp, p, span, h1, h2, h3, h4, h5, h6, label { color: #FFFFFF !important; }
+    /* Grey for small labels (Service, Activated, etc.) */
+    div[data-testid="stMetricLabel"] { color: #B0B0B0 !important; }
+    /* BRIGHT GREEN for metric values (Shadow Sentinel, False, etc.) */
+    div[data-testid="stMetricValue"] > div, div[data-testid="stMetricValue"] {
+        color: #00FF00 !important;
+        font-weight: bold !important;
+    }
+    /* Green border around the metric cards */
+    div[data-testid="metric-container"] {
+        border: 1px solid #00FF00 !important;
+        background-color: #1A1A1A !important;
+        padding: 15px !important;
+        border-radius: 8px !important;
+    }
+    /* Light grey for subtitles */
+    .stCaption, .stMarkdown p { color: #D0D0D0 !important; }
+</style>
+""", unsafe_allow_html=True)
 """Shadow Sentinel - Operator Console (Streamlit)."""
 import hashlib, hmac, json, os, secrets, time
 import requests
-import streamlit as st
 
 BACKEND = "http://127.0.0.1:8000"
 _KEY_FILE = ".sentinel_keys.json"
@@ -30,16 +55,7 @@ def _signed_request(method, path, api_key_id, payload=None):
     except Exception as e: return None, str(e)
 
 st.set_page_config(page_title="Shadow Sentinel", layout="wide")
-st.markdown("""<style>
-    .stApp { background: #0a0e1a; color: #e2e8f0; }
-    .main .block-container { padding-top: 1rem; max-width: 1500px; }
-    div[data-testid="stMetric"] { background: #10182b; border: 1px solid #1f2d4a; border-top: 2px solid #2dd4bf; border-radius: 4px; padding: 14px; }
-    div[data-testid="stMetricLabel"] * { color: #7dd3fc !important; text-transform: uppercase; font-weight: 700 !important; }
-    div[data-testid="stMetricValue"] * { color: #fff !important; font-family: monospace !important; }
-    .stButton > button { background: #16213a; color: #e2e8f0; border: 1px solid #1f2d4a; border-radius: 4px; width: 100%; }
-    .stButton > button:hover { background: #2dd4bf; color: #0a0e1a; }
-    header, footer { visibility: hidden; }
-</style>""", unsafe_allow_html=True)
+
 
 st.title("SHADOW SENTINEL")
 st.caption("Independent Watchdog - Operator Console")
@@ -78,3 +94,14 @@ else:
                 if cc2.button("REJECT", key="rj_" + str(idx)):
                     _signed_request("POST", "/reject", key_id, {"alert_index": idx, "operator": key_id, "reason": "rejected"})
                     st.rerun()
+
+
+
+
+
+
+
+
+
+
+
