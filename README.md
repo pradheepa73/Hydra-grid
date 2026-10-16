@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 ﻿# HYDRA-GRID 2026
+=======
+
+# HYDRA-GRID 2026
+>>>>>>> 0c0615f2a021c9804a1a9f026c3c0463bad3605e
 
 **A Self-Learning Cyber-Physical Defense Grid for National Smart Substations**
 
 > *Cut One Head. It Grows Stronger.*
 
-[![Tests](https://img.shields.io/badge/tests-26%20passing-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-46%20passing-brightgreen)]()
 [![Python](https://img.shields.io/badge/python-3.11+-blue)]()
 [![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)]()
 
@@ -115,6 +120,20 @@ Command - SENTRY - TWIN - PATTERN - IMMUNE - COUNCIL - ALLOW / BLOCK
 
 ---
 
+## Algorithms Used
+
+| Layer | Main Algorithms / Techniques |
+|:---|:---|
+| **SENTRY** | HMAC-SHA256, SHA-256, Nonce, Merkle Tree |
+| **TWIN** | Digital Twin Simulation (no crypto) |
+| **PATTERN** | Physics Rules + Markov Chain |
+| **IMMUNE** | SHA-256 + Human-in-the-Loop |
+| **Cross-Layer** | AES-256-GCM + HMAC + Fail-Closed Self-Test |
+
+**One-liner:** HMAC-SHA256 and SHA-256 for authenticity/integrity, Markov Chain for anomaly detection, Digital Twin for pre-execution simulation, AES-256-GCM for log encryption.
+
+---
+
 ## Real Incidents Countered
 
 - **Ukraine 2015 (BlackEnergy)** -> SENTRY + TWIN
@@ -142,7 +161,7 @@ Hydra-grid/
 |   |-- backend.py
 |   \-- frontend.py
 |
-|-- tests/                      # 26 automated tests
+|-- tests/                      # 46 automated tests
 |-- scripts/
 |-- docs/
 |-- demo/
@@ -174,7 +193,7 @@ python scripts/run_full_pipeline.py
 
 # 5. Run all tests
 python -m pytest tests/ -v
-# Expected: 26 passed
+# Expected: 46 passed
 
 # 6. Launch the main dashboard
 streamlit run src/layer5_council/dashboard.py
@@ -185,19 +204,20 @@ streamlit run src/layer5_council/dashboard.py
 
 ## Test Coverage
 
-**26 automated tests** across all 5 layers:
+**46 automated tests** across all 5 layers:
 
 | Test Suite | Tests | Coverage |
 |:---|:-:|:---|
-| test_layer1_sentry.py | 4 | Crypto, replay, credentials, firmware |
-| test_layer2_twin.py | 3 | Cascade, voltage, redundant commands |
-| test_layer3_pattern.py | 3 | Physics rules, Markov chain |
-| test_layer4_immune.py | 3 | Signatures, approval gate |
-| test_layer5_council.py | 3 | Pipeline integration |
+| test_layer1_sentry.py | 6 | Crypto, replay, credentials, firmware |
+| test_layer2_twin.py | 5 | Cascade, voltage, redundant commands |
+| test_layer3_pattern.py | 5 | Physics rules, Markov chain |
+| test_layer4_immune.py | 5 | Signatures, approval gate |
+| test_layer5_council.py | 5 | Pipeline integration |
 | test_honeypot.py | 2 | Honeypot capture |
-| test_recovery.py | 2 | Golden image restore |
-| test_integration.py | 3 | Cross-layer end-to-end |
-| test_sentinel.py | 3 | Shadow Sentinel triggers |
+| test_recovery.py | 3 | Golden image restore |
+| test_integration.py | 5 | Cross-layer end-to-end |
+| test_sentinel.py | 5 | Shadow Sentinel triggers |
+| test_sentinel_integration.py | 5 | Sentinel + HYDRA-GRID end-to-end |
 
 ---
 
@@ -245,6 +265,8 @@ streamlit run src/layer5_council/dashboard.py
 
 Shadow Sentinel is a **completely independent application** -- not a layer inside HYDRA-GRID. It runs as a separate process and monitors the 5 defense layers from the outside.
 
+It acts as a **backup safety net**: if the 5 layers are bypassed, corrupted, or fail silently, Shadow Sentinel is the final line of defense that catches the anomaly and alerts the operator.
+
 It does **not** block commands. It does **not** act autonomously. It **only** observes, evaluates, and raises alerts for human review.
 
 ---
@@ -268,6 +290,30 @@ Shadow Sentinel sits outside the pipeline. It does not trust the layers. It watc
 - **Shadow Sentinel Frontend** -- port 8502
 
 Three separate processes. Two ports. Zero shared state.
+
+---
+
+## Independence From HYDRA-GRID
+
+Shadow Sentinel is **not Layer 6**. It is not part of HYDRA-GRID's internal pipeline. It is a separate, out-of-band watchdog process.
+
+It runs in a different process, uses different ports (8000 and 8502 vs 8501), and shares zero state with the 5 layers. Its only job is to observe the 5 layers from outside the trust boundary.
+
+If SENTRY, TWIN, PATTERN, IMMUNE, or COUNCIL are compromised, Shadow Sentinel remains isolated and can still detect the compromise and raise an alert for human review.
+
+This is why the architecture is described as "**5 layers + 1 independent watchdog**" rather than "6 layers."
+
+---
+
+## Shadow Sentinel as the Backup Plan
+
+Shadow Sentinel is not just an observer -- it is the **backup plan**.
+
+Every defense system assumes its own layers will work. But what happens if they don't? What if an attacker compromises SENTRY, disables TWIN, tampers with PATTERN, poisons IMMUNE, or blinds COUNCIL? In that scenario, HYDRA-GRID alone cannot protect the grid.
+
+This is why Shadow Sentinel exists as a **separate, independent watchdog**. Even if all 5 layers fail, Shadow Sentinel is still running on a different process, watching from the outside, and ready to raise the alarm.
+
+**The 5 layers are the shield. Shadow Sentinel is the safety net.**
 
 ---
 
