@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-﻿# HYDRA-GRID 2026
-=======
 
 # HYDRA-GRID 2026
->>>>>>> 0c0615f2a021c9804a1a9f026c3c0463bad3605e
 
 **A Self-Learning Cyber-Physical Defense Grid for National Smart Substations**
 
 > *Cut One Head. It Grows Stronger.*
 
-[![Tests](https://img.shields.io/badge/tests-46%20passing-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-41%20passing-brightgreen)]()
 [![Python](https://img.shields.io/badge/python-3.11+-blue)]()
 [![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)]()
 
@@ -19,7 +15,26 @@
 
 HYDRA-GRID is a software-only, 5-layer defense framework that protects smart grid substations from nation-state cyber-physical attacks. It implements the full **Prevent - Simulate - Detect - Learn - Explain** loop on commodity hardware.
 
-Every layer maps to a documented real-world incident from 2015 to 2025. The project is complemented by **Shadow Sentinel** -- a completely independent watchdog application that monitors the 5 layers from the outside. Shadow Sentinel is described at the end of this document.
+Every layer maps to a documented real-world incident from 2015 to 2025. The project is complemented by **Shadow Sentinel** -- a completely independent watchdog application that monitors the 5 layers from the outside.
+
+---
+
+## HYDRA-GRID Screenshots
+
+### Initial State (DEFCON 5)
+*All 3 breakers CLOSED, voltage at 1.0 pu, all 5 layers active. Clean slate.*
+
+![HYDRA-GRID Normal](docs/images/hydra-normal.png)
+
+### Defending Against Attack (DEFCON 3)
+*After simulated attacks: B1 OPEN, voltage dropped to 0.7 pu. 3 threats blocked by different layers. 2 attack signatures learned by IMMUNE.*
+
+![HYDRA-GRID Defending](docs/images/hydra-attack.png)
+
+### Defense Event Log - Attack Detail
+*Every command is logged with layer attribution and reason. Green = ALLOW, Red = BLOCK.*
+
+![Defense Event Log](docs/images/hydra-log.png)
 
 ---
 
@@ -161,12 +176,14 @@ Hydra-grid/
 |   |-- backend.py
 |   \-- frontend.py
 |
-|-- tests/                      # 46 automated tests
+|-- tests/                      # 41 automated tests
 |-- scripts/
 |-- docs/
+|   \-- images/                 # Dashboard screenshots
 |-- demo/
 |-- infra/
 |-- README.md
+|-- SHADOW_SENTINEL.md
 |-- LICENSE
 \-- requirements.txt
 ```
@@ -193,7 +210,7 @@ python scripts/run_full_pipeline.py
 
 # 5. Run all tests
 python -m pytest tests/ -v
-# Expected: 46 passed
+# Expected: 41 passed
 
 # 6. Launch the main dashboard
 streamlit run src/layer5_council/dashboard.py
@@ -204,11 +221,11 @@ streamlit run src/layer5_council/dashboard.py
 
 ## Test Coverage
 
-**46 automated tests** across all 5 layers:
+**41 automated tests** across all 5 layers:
 
 | Test Suite | Tests | Coverage |
 |:---|:-:|:---|
-| test_layer1_sentry.py | 6 | Crypto, replay, credentials, firmware |
+| test_layer1_sentry.py | 6 | Crypto, replay, credentials, firmware, rate limit |
 | test_layer2_twin.py | 5 | Cascade, voltage, redundant commands |
 | test_layer3_pattern.py | 5 | Physics rules, Markov chain |
 | test_layer4_immune.py | 5 | Signatures, approval gate |
@@ -217,7 +234,7 @@ streamlit run src/layer5_council/dashboard.py
 | test_recovery.py | 3 | Golden image restore |
 | test_integration.py | 5 | Cross-layer end-to-end |
 | test_sentinel.py | 5 | Shadow Sentinel triggers |
-| test_sentinel_integration.py | 5 | Sentinel + HYDRA-GRID end-to-end |
+| **Total** | **41** | **All passing** |
 
 ---
 
@@ -266,6 +283,11 @@ streamlit run src/layer5_council/dashboard.py
 Shadow Sentinel is a **completely independent application** -- not a layer inside HYDRA-GRID. It runs as a separate process and monitors the 5 defense layers from the outside.
 
 It acts as a **backup safety net**: if the 5 layers are bypassed, corrupted, or fail silently, Shadow Sentinel is the final line of defense that catches the anomaly and alerts the operator.
+
+### Shadow Sentinel - Operator Console
+*Runs on port 8502 as a separate application. Silent during normal operation. Log integrity: INTACT.*
+
+![Shadow Sentinel Console](docs/images/shadow-sentinel.png)
 
 It does **not** block commands. It does **not** act autonomously. It **only** observes, evaluates, and raises alerts for human review.
 
@@ -447,6 +469,5 @@ pradheepa378@gmail.com
 
 </div>
 ```
-
 ---
 
